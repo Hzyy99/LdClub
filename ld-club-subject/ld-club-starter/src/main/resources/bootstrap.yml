@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: ld-club-subject
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      server-addr: 192.168.101.65:8848
+      discovery:
+        namespace: ld-club
+        group: ld-club-subject
+      config:
+        namespace: ld-club
+        group: ld-club-subject
+        file-extension: yaml
+        refresh-enabled: true
+        extension-configs:
+          - data-id: ld-club-subject
+            group: ld-club-subject
+            refresh: true
+
