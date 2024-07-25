@@ -9,9 +9,6 @@ import java.util.List;
 
 /**
  * 用户bo转换器
- *
- * @author: ChickenWing
- * @date: 2023/10/8
  */
 @Mapper
 public interface AuthUserBOConverter {

@@ -9,9 +9,6 @@ import java.util.List;
 
 /**
  * 题目分类
- *
- * @author: ChickenWing
- * @date: 2023/10/3
  */
 @Data
 public class SubjectCategoryDTO implements Serializable {

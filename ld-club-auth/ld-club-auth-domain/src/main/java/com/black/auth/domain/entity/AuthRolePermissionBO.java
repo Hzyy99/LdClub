@@ -7,7 +7,6 @@ import java.util.List;
 
 /**
  * (AuthRolePermission)实体类
- *
  */
 @Data
 public class AuthRolePermissionBO implements Serializable {

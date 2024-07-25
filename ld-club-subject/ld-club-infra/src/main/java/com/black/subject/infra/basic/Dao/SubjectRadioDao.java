@@ -12,9 +12,6 @@ import java.util.List;
  * <p>
  * 单选题信息表 服务实现类
  * </p>
- *
- * @author <a>black</a>
- * @since 2024-07-16
  */
 @Service
 public class SubjectRadioDao extends ServiceImpl<SubjectRadioMapper, SubjectRadio> {

@@ -9,7 +9,6 @@ import java.util.Date;
 
 /**
  * 题目信息表(SubjectInfo)实体类
-
  */
 @Data
 public class SubjectInfo implements Serializable {

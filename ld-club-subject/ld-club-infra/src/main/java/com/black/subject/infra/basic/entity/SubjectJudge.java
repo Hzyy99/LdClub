@@ -9,7 +9,6 @@ import java.util.Date;
 
 /**
  * 判断题(SubjectJudge)实体类
-
  */
 @Data
 public class SubjectJudge implements Serializable {

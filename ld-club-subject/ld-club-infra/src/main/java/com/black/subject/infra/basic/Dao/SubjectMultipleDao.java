@@ -12,9 +12,6 @@ import java.util.List;
  * <p>
  * 多选题信息表 服务实现类
  * </p>
- *
- * @author <a>black</a>
- * @since 2024-07-16
  */
 @Service
 public class SubjectMultipleDao extends ServiceImpl<SubjectMultipleMapper, SubjectMultiple> {

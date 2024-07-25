@@ -10,7 +10,6 @@ import java.util.Date;
 
 /**
  * 题目标签表(SubjectLabel)实体类
-
  */
 @Data
 public class SubjectLabel implements Serializable {

@@ -6,9 +6,6 @@ import java.io.Serializable;
 
 /**
  * 题目点赞消息
- *
- * @author jingdianjichi
- * @since 2024-01-07 23:08:45
  */
 @Data
 public class SubjectLikedMessage implements Serializable {

@@ -1,18 +1,14 @@
 package com.black.subject.domain.service.impl;
 
-import com.black.subject.domain.convert.SubjectCategoryConverter;
 import com.black.subject.domain.convert.SubjectLabelConverter;
 import com.black.subject.domain.service.SubjectLabelService;
-import com.black.subject.infra.basic.Bo.SubjectCategoryBO;
 import com.black.subject.infra.basic.Bo.SubjectLabelBO;
 import com.black.subject.infra.basic.Dao.SubjectLabelDao;
-import com.black.subject.infra.basic.entity.SubjectCategory;
 import com.black.subject.infra.basic.entity.SubjectLabel;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.Collections;
 import java.util.List;
 
 @Slf4j

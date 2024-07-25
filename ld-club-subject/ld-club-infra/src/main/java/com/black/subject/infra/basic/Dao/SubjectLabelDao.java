@@ -11,9 +11,6 @@ import java.util.List;
  * <p>
  * 题目标签表 服务实现类
  * </p>
- *
- * @author <a>black</a>
- * @since 2024-07-16
  */
 @Service
 public class SubjectLabelDao extends ServiceImpl<SubjectLabelMapper, SubjectLabel>  {

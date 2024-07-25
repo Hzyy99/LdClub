@@ -18,9 +18,6 @@ import java.util.List;
  * <p>
  * 题目分类 前端控制器
  * </p>
- *
- * @author <a>black</a>
- * @since 2024-07-16
  */
 @RestController
 @RequestMapping("/subject/category")

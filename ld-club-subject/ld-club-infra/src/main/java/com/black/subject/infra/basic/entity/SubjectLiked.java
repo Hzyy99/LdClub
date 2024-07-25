@@ -11,7 +11,6 @@ import java.util.Date;
 
 /**
  * 题目点赞表 实体类
-
  */
 @Data
 @TableName("subject_liked")

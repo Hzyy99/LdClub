@@ -7,7 +7,6 @@ import java.security.NoSuchProviderException;
 
 /**
  * 数据库加密util
-
  */
 public class DruidEncryptUtil {
 

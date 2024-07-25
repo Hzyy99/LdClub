@@ -7,9 +7,6 @@ import java.util.List;
 
 /**
  * 题目dto
- *
- * @author: ChickenWing
- * @date: 2023/10/5
  */
 @Data
 public class SubjectInfoDTO  {

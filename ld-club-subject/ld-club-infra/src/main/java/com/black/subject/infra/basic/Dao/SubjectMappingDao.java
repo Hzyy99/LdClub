@@ -9,9 +9,6 @@ import org.springframework.stereotype.Service;
  * <p>
  * 题目分类关系表 服务实现类
  * </p>
- *
- * @author <a>black</a>
- * @since 2024-07-16
  */
 @Service
 public class SubjectMappingDao extends ServiceImpl<SubjectMappingMapper, SubjectMapping> {

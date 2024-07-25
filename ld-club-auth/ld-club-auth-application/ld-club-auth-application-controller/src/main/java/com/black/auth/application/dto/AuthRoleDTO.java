@@ -6,7 +6,6 @@ import java.io.Serializable;
 
 /**
  * 角色dto
-
  */
 @Data
 public class AuthRoleDTO implements Serializable {

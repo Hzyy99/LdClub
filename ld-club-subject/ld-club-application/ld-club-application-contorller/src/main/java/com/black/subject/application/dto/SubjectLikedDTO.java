@@ -8,9 +8,6 @@ import java.util.Date;
 
 /**
  * 题目点赞表 dto
- *
- * @author jingdianjichi
- * @since 2024-01-07 23:08:45
  */
 @Data
 public class SubjectLikedDTO implements Serializable {

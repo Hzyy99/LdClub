@@ -5,7 +5,6 @@ import java.io.Serializable;
 
 /**
  * 权限dto
-
  */
 @Data
 public class AuthPermissionDTO implements Serializable {

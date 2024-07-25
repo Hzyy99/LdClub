@@ -4,6 +4,9 @@ import com.black.gateway.enums.ErrorEnum;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+/**
+ * 业务异常
+ */
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class BusinessException extends RuntimeException {

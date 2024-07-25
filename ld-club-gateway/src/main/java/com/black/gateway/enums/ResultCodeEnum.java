@@ -3,7 +3,6 @@ package com.black.gateway.enums;
 import lombok.Getter;
 /**
  * code枚举
- *
  */
 @Getter
 public enum ResultCodeEnum {

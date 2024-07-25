@@ -6,9 +6,6 @@ import java.io.Serializable;
 
 /**
  * 题目标签bo
- *
- * @author: ChickenWing
- * @date: 2023/10/3
  */
 @Data
 public class SubjectLabelBO implements Serializable {

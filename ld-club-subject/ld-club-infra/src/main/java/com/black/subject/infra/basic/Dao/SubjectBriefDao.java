@@ -11,9 +11,6 @@ import org.springframework.stereotype.Service;
  * <p>
  * 简答题 服务实现类
  * </p>
- *
- * @author <a>black</a>
- * @since 2024-07-16
  */
 @Service
 public class SubjectBriefDao extends ServiceImpl<SubjectBriefMapper, SubjectBrief> {

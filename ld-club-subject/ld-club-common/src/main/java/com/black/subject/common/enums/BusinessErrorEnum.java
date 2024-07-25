@@ -5,8 +5,6 @@ import lombok.Getter;
 
 /**
  * Description: 业务校验异常码
- * Author: <a href="https://github.com/zongzibinbin">abin</a>
- * Date: 2023-03-26
  */
 @AllArgsConstructor
 @Getter
