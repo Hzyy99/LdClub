@@ -8,8 +8,6 @@ import java.util.Date;
 /**
  * 简答题(SubjectBrief)实体类
  *
- * @author makejava
- * @since 2023-10-05 21:29:22
  */
 @Data
 public class SubjectBrief implements Serializable {

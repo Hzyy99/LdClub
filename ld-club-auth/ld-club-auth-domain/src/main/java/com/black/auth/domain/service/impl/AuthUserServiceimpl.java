@@ -1,7 +1,8 @@
 package com.black.auth.domain.service.impl;
 
+import cn.dev33.satoken.stp.SaTokenInfo;
+import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.json.JSONUtil;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.black.auth.common.enums.AuthUserStatusEnum;
 import com.black.auth.common.enums.IsDeletedFlagEnum;
 import com.black.auth.domain.Dao.*;
@@ -10,16 +11,11 @@ import com.black.auth.domain.entity.AuthUserBO;
 import com.black.auth.domain.redis.RedisUtil;
 import com.black.auth.domain.service.AuthUserService;
 import com.black.auth.infra.basic.entity.*;
-import com.black.auth.infra.basic.mapper.AuthPermissionMapper;
-import com.black.auth.infra.basic.mapper.AuthUserMapper;
-import com.black.subject.common.utils.AssertUtil;
+import com.black.auth.common.utils.AssertUtil;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.Resource;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class AuthUserServiceimpl implements AuthUserService {
@@ -72,8 +68,8 @@ public class AuthUserServiceimpl implements AuthUserService {
          * 添加初步的角色权限关联
          */
         AuthRole authRole = new AuthRole();
-        authRole.setRoleName(NORMAL_USER);
-        AuthRole authRoleResult = authRoleDao.getByRoleName(authRole);
+        authRole.setRoleKey(NORMAL_USER);
+        AuthRole authRoleResult = authRoleDao.getByRoleKey(authRole);
         Long roleId = authRoleResult.getId();
         Long userId = authUser.getId();
         AuthUserRole authUserRole = new AuthUserRole();
@@ -92,21 +88,25 @@ public class AuthUserServiceimpl implements AuthUserService {
         /**
          * 添加权限缓存
          */
-        AuthRolePermission authRolePermission = new AuthRolePermission();
-        authRolePermission.setRoleId(roleId);
-        List<AuthRolePermission> authRolePermissionList = authRolePermissionDao.selectList(authRolePermission);
-        List<Long> PermissionIdList = authRolePermissionList.stream().map(AuthRolePermission::getPermissionId).collect(Collectors.toList());
-        List<AuthPermission> permissionList = authPermissionDao.getByidList(PermissionIdList);
-        AssertUtil.isListEmpty(permissionList, "权限获取失败");
-        String permissionKey = redisUtil.buildKey(authPermissionPrefix, authUser.getUserName());
-        redisUtil.set(permissionKey, JSONUtil.toJsonStr(permissionList));
+//        AuthRolePermission = new AuthRolePermission();
+//        authRolePermission.setRoleId(roleId);
+//        List<AuthRolePermission> authRolePermissionList = authRolePermissionDao.selectList(authRolePermission);
+//        List<Long> PermissionIdList = authRolePermissionList.stream().map(AuthRolePermission::getPermissionId).collect(Collectors.toList());
+//        List<AuthPermission> permissionList = authPermissionDao.getByidList(PermissionIdList);
+//        AssertUtil.isListEmpty(permissionList, "权限获取失败");
+//        String permissionKey = redisUtil.buildKey(authPermissionPrefix, authUser.getUserName());
+//        redisUtil.set(permissionKey, JSONUtil.toJsonStr(permissionList));
         return true;
     }
-
+    /**
+     * 更新用户信息
+     * @param authUserBO
+     * @return
+     */
     @Override
     public Boolean update(AuthUserBO authUserBO) {
         AuthUser authUser = AuthUserBOConverter.INSTANCE.convertBOToEntity(authUserBO);
-        boolean update = authUserDao.updateById(authUser);
+        boolean update = authUserDao.updateByUsername(authUser);
         AssertUtil.isTrue(update, "更新失败");
         return update;
     }
@@ -135,4 +135,33 @@ public class AuthUserServiceimpl implements AuthUserService {
         AssertUtil.isListEmpty(authUserBOS, "批量用户信息获取失败");
         return authUserBOS;
     }
+    /**
+     * 删除用户
+     * @param authUserBO
+     * @return
+     */
+    @Override
+    public Boolean delete(AuthUserBO authUserBO) {
+        AuthUser authUser = AuthUserBOConverter.INSTANCE.convertBOToEntity(authUserBO);
+        boolean delete = authUserDao.removeById(authUser.getId());
+        AssertUtil.isTrue(delete, "删除失败");
+        return delete;
+    }
+    /**
+     * 用户登录
+     * @param validCode
+     * @return
+     */
+    @Override
+    public SaTokenInfo doLogin(String validCode) {
+        String loginKey = redisUtil.buildKey(LOGIN_PREFIX, validCode);
+        String openId = redisUtil.get(loginKey);
+        AssertUtil.isEmpty(openId, "验证码失效");
+        AuthUserBO authUserBO = new AuthUserBO();
+        authUserBO.setUserName(openId);
+        this.register(authUserBO);
+        StpUtil.login(openId);
+        return StpUtil.getTokenInfo();
+    }
+
 }

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/jc-club-subject/pom.xml" />
+        <option value="$PROJECT_DIR$/ld-club-subject/ld-club-subject-api/pom.xml" />
+        <option value="$PROJECT_DIR$/ld-club-subject/pom.xml" />
+        <option value="$PROJECT_DIR$/ld-club-oss/pom.xml" />
+        <option value="$PROJECT_DIR$/ld-club-auth/pom.xml" />
+        <option value="$PROJECT_DIR$/ld-club-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/ld-club-wechat/pom.xml" />
+        <option value="$PROJECT_DIR$/ld-club-generatecode/pom.xml" />
+        <option value="$PROJECT_DIR$/ld-club-wechatLogin/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

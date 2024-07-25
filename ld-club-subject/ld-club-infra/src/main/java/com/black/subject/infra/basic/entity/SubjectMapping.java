@@ -1,19 +1,21 @@
 package com.black.subject.infra.basic.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * 题目分类关系表(SubjectMapping)实体类
- *
- * @author makejava
- * @since 2023-10-03 22:17:07
  */
 public class SubjectMapping implements Serializable {
     private static final long serialVersionUID = -72034591678118838L;
     /**
      * 主键
      */
+    @TableId(value="id",type = IdType.AUTO)
     private Long id;
     /**
      * 题目id

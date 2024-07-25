@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.black.subject.application.convert.SubjectInfoDTOConverter;
 import com.black.subject.application.dto.SubjectInfoDTO;
 import com.black.subject.common.entity.Result;
+import com.black.subject.common.utils.AssertUtil;
 import com.black.subject.domain.service.SubjectInfoService;
 import com.black.subject.infra.basic.Bo.SubjectInfoBO;
 import lombok.extern.slf4j.Slf4j;
@@ -23,12 +24,14 @@ public class SubjectController {
 
     @PostMapping("/add")
     public Result<Boolean> add(@RequestBody SubjectInfoDTO subjectInfoDTO){
-        if (log.isInfoEnabled()){
-            log.info("add subjectInfoDTO:{}", JSON.toJSONString(subjectInfoDTO));
-        }
+        AssertUtil.isEmpty(subjectInfoDTO.getSubjectName(), "题目内容不能为空");
+        AssertUtil.isEmpty(subjectInfoDTO.getSubjectType(), "题目类型不能为空");
+        AssertUtil.isEmpty(subjectInfoDTO.getSubjectDifficult(), "题目难度不能为空");
+        AssertUtil.isEmpty(subjectInfoDTO.getSubjectScore(), "题目分数不能为空");
+        AssertUtil.isListEmpty(subjectInfoDTO.getCategoryIds(), "分类ID不能为空");
+        AssertUtil.isListEmpty(subjectInfoDTO.getLabelIds(), "标签ID不能为空");
         SubjectInfoBO subjectInfoBO = SubjectInfoDTOConverter.INSTANCE.convertDTOToBO(subjectInfoDTO);
         Boolean result = subjectInfoService.add(subjectInfoBO);
-
-        return Result.success();
+        return Result.success(result);
     }
 }

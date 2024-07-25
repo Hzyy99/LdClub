@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.black.auth.infra.basic.entity.AuthRole;
 import com.black.auth.infra.basic.entity.AuthUser;
 import com.black.auth.infra.basic.mapper.AuthUserMapper;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -18,7 +20,7 @@ import java.util.List;
  * @author black
  * @since 2024-07-20
  */
-
+@Component
 public class AuthUserDao extends ServiceImpl<AuthUserMapper, AuthUser>  {
     /**
      * 根据用户名获取用户信息
@@ -37,5 +39,16 @@ public class AuthUserDao extends ServiceImpl<AuthUserMapper, AuthUser>  {
         LambdaQueryWrapper<AuthUser> authUserLambdaQueryWrapper = new LambdaQueryWrapper<>();
         authUserLambdaQueryWrapper.eq(AuthUser::getUserName, userNameList);
         return this.getBaseMapper().selectList(authUserLambdaQueryWrapper);
+    }
+
+    /**
+     * 根据用户名更新信息
+     * @param authUser
+     * @return
+     */
+    public boolean updateByUsername(AuthUser authUser) {
+        LambdaQueryWrapper<AuthUser> authUserLambdaQueryWrapper = new LambdaQueryWrapper<>();
+        authUserLambdaQueryWrapper.eq(AuthUser::getUserName, authUser.getUserName());
+        return update(authUser, authUserLambdaQueryWrapper);
     }
 }

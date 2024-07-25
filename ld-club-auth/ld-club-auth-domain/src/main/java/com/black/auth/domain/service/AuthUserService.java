@@ -1,5 +1,6 @@
 package com.black.auth.domain.service;
 
+import cn.dev33.satoken.stp.SaTokenInfo;
 import com.black.auth.domain.entity.AuthUserBO;
 
 import java.util.List;
@@ -25,4 +26,8 @@ public interface AuthUserService {
     AuthUserBO getUserInfo(AuthUserBO authUserBO);
 
     List<AuthUserBO> listUserInfoBynames(List<String> userNameList);
+
+    Boolean delete(AuthUserBO authUserBO);
+
+    SaTokenInfo doLogin(String validCode);
 }

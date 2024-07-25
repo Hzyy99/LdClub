@@ -1,6 +1,5 @@
 package com.black.auth.common.exception;
 
-
 import com.black.auth.common.entity.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -8,10 +7,7 @@ import org.springframework.http.HttpStatus;
 
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +18,8 @@ import java.util.List;
  */
 @Slf4j
 @ControllerAdvice
-//@RestControllerAdvice
-public class GlobalExceptionHandler {
+@RestControllerAdvice
+public class GlobalExceptionHandlerAuth {
 
     //对项目的自定义异常类型进行处理
     @ResponseBody
@@ -51,8 +47,6 @@ public class GlobalExceptionHandler {
         //解析出异常信息
         return Result.fail(e.getMessage());
     }
-
-
     //MethodArgumentNotValidException
     @ResponseBody
     @ExceptionHandler(MethodArgumentNotValidException.class)

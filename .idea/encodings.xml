@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/ld-club-auth/ld-club-auth-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-auth/ld-club-auth-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-auth/ld-club-auth-application/ld-club-auth-application-controller/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-auth/ld-club-auth-application/ld-club-auth-application-controller/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-auth/ld-club-auth-application/ld-club-auth-application-job/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-auth/ld-club-auth-application/ld-club-auth-application-job/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-auth/ld-club-auth-application/ld-club-auth-application-mq/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-auth/ld-club-auth-application/ld-club-auth-application-mq/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-auth/ld-club-auth-application/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-auth/ld-club-auth-application/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-auth/ld-club-auth-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-auth/ld-club-auth-common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-auth/ld-club-auth-domain/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-auth/ld-club-auth-domain/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-auth/ld-club-auth-infra/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-auth/ld-club-auth-infra/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-auth/ld-club-auth-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-auth/ld-club-auth-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-auth/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-auth/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-generatecode/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-generatecode/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-oss/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-oss/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-subject/ld-club-application/ld-club-application-contorller/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-subject/ld-club-application/ld-club-application-contorller/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-subject/ld-club-application/ld-club-application-job/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-subject/ld-club-application/ld-club-application-job/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-subject/ld-club-application/ld-club-applition-mq/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-subject/ld-club-application/ld-club-applition-mq/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-subject/ld-club-application/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-subject/ld-club-application/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-subject/ld-club-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-subject/ld-club-common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-subject/ld-club-domain/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-subject/ld-club-domain/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-subject/ld-club-infra/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-subject/ld-club-infra/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-subject/ld-club-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-subject/ld-club-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-subject/ld-club-subject-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-subject/ld-club-subject-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-subject/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-subject/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-wechatLogin/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ld-club-wechatLogin/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

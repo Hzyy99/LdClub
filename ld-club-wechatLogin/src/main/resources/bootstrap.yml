@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: ld-club-wechatLogin
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      server-addr: 192.168.101.65:8848
+      discovery:
+        namespace: ld-club
+        group: ld-club-wechatLogin
+      config:
+        namespace: ld-club
+        group: ld-club-wechatLogin
+        file-extension: yaml
+        refresh-enabled: true
+        extension-configs:
+          - data-id: ld-club-wechatLogin
+            group: ld-club-wechatLogin
+            refresh: true
+

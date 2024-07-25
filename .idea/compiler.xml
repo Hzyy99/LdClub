@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ld-club-starter" />
+        <module name="ld-club-auth-application" />
+        <module name="ld-club-oss" />
+        <module name="ld-club-auth-api" />
+        <module name="ld-club-auth-application-controller" />
+        <module name="ld-club-domain" />
+        <module name="ld-club-application-job" />
+        <module name="ld-club-auth-application-mq" />
+        <module name="ld-club-application-contorller" />
+        <module name="ld-club-auth-common" />
+        <module name="ld-club-auth-infra" />
+        <module name="ld-club-applition-mq" />
+        <module name="ld-club-auth-domain" />
+        <module name="ld-club-common" />
+        <module name="ld-club-auth-application-job" />
+        <module name="ld-club-auth-starter" />
+        <module name="ld-club-subject-api" />
+        <module name="ld-club-infra" />
+        <module name="ld-club-generatecode" />
+        <module name="ld-club-gateway" />
+        <module name="ld-club-wechatLogin" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

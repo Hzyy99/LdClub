@@ -1,5 +1,7 @@
 package com.black.subject.infra.basic.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -7,9 +9,7 @@ import java.util.Date;
 
 /**
  * 判断题(SubjectJudge)实体类
- *
- * @author makejava
- * @since 2023-10-05 21:29:47
+
  */
 @Data
 public class SubjectJudge implements Serializable {
@@ -17,6 +17,7 @@ public class SubjectJudge implements Serializable {
     /**
      * 主键
      */
+    @TableId(value="id",type = IdType.AUTO)
     private Long id;
     /**
      * 题目id

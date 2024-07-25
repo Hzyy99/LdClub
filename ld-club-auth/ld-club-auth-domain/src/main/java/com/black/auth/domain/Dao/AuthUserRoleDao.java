@@ -3,6 +3,7 @@ package com.black.auth.domain.Dao;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.black.auth.infra.basic.entity.AuthUserRole;
 import com.black.auth.infra.basic.mapper.AuthUserRoleMapper;
+import org.springframework.stereotype.Component;
 
 
 /**
@@ -13,7 +14,7 @@ import com.black.auth.infra.basic.mapper.AuthUserRoleMapper;
  * @author black
  * @since 2024-07-20
  */
-
+@Component
 public class AuthUserRoleDao extends ServiceImpl<AuthUserRoleMapper, AuthUserRole> {
 
 }

@@ -15,9 +15,6 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 /**
  * Redis的config处理
- *
- * @author: ChickenWing
- * @date: 2023/10/28
  */
 @Configuration
 public class RedisConfig {

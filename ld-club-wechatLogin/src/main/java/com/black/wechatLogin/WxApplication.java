@@ -6,9 +6,6 @@ import org.springframework.context.annotation.ComponentScan;
 
 /**
  * 微信服务启动器
- * 
- * @author: ChickenWing
- * @date: 2023/10/11
  */
 @SpringBootApplication(scanBasePackages = {"com.black.wechatLogin"})
 public class WxApplication {

@@ -9,7 +9,7 @@ import com.black.auth.infra.basic.entity.AuthPermission;
  * </p>
  *
  * @author black
- * @since 2024-07-20
+ * @since 2024-07-23
  */
 public interface AuthPermissionMapper extends BaseMapper<AuthPermission> {
 

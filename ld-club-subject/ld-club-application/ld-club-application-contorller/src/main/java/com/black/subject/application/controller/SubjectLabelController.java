@@ -40,19 +40,11 @@ public class SubjectLabelController {
      */
     @PostMapping("/add")
     public Result<Boolean> add(@RequestBody SubjectLabelDTO subjectLabelDTO){
-        try {
-            if (log.isInfoEnabled()) {
-                log.info("SubjectLabelController.add.dto:{}", JSON.toJSONString(subjectLabelDTO));
-            }
-            AssertUtil.isEmpty(subjectLabelDTO.getLabelName(), "标签名称不能为空");
-            SubjectLabelBO subjectLabelBO = SubjectLabelDTOConverter.INSTANCE.convertDtoToLabelBO(subjectLabelDTO);
-            Boolean result = subjectLabelService.add(subjectLabelBO);
-            AssertUtil.isTrue(result, "添加失败");
-            return Result.success(result);
-        } catch (Exception e) {
-            log.error("SubjectLabelController.add.error:{}", e.getMessage());
-            return Result.fail("添加标签失败");
-        }
+        AssertUtil.isEmpty(subjectLabelDTO.getLabelName(), "标签名称不能为空");
+        SubjectLabelBO subjectLabelBO = SubjectLabelDTOConverter.INSTANCE.convertDtoToLabelBO(subjectLabelDTO);
+        Boolean result = subjectLabelService.add(subjectLabelBO);
+        AssertUtil.isTrue(result, "添加失败");
+        return Result.success(result);
     }
     /**
      * 更新标签
@@ -61,18 +53,10 @@ public class SubjectLabelController {
      */
     @PostMapping("/update")
     public Result<Boolean> update(@RequestBody SubjectLabelDTO subjectLabelDTO){
-        try {
-            if (log.isInfoEnabled()){
-                log.info("SubjectLabelController.update.dto:{}", JSON.toJSONString(subjectLabelDTO));
-            }
-            SubjectLabelBO subjectLabelBO = SubjectLabelDTOConverter.INSTANCE.convertDtoToLabelBO(subjectLabelDTO);
-            Boolean update = subjectLabelService.update(subjectLabelBO);
-            AssertUtil.isTrue(update, "更新失败");
-            return Result.success(update);
-        } catch (Exception e) {
-            log.info("SubjectlabelController.updata.error{}",e.getMessage());
-            return Result.fail("更新失败");
-        }
+        SubjectLabelBO subjectLabelBO = SubjectLabelDTOConverter.INSTANCE.convertDtoToLabelBO(subjectLabelDTO);
+        Boolean update = subjectLabelService.update(subjectLabelBO);
+        AssertUtil.isTrue(update, "更新失败");
+        return Result.success(update);
     }
     /**
      * 删除标签
@@ -81,18 +65,10 @@ public class SubjectLabelController {
      */
     @PostMapping("/delete")
     public Result<Boolean> delete(@RequestBody SubjectLabelDTO subjectLabelDTO){
-        try {
-            if (log.isInfoEnabled()){
-                log.info("SubjectLabelController.delete.dto:{}", JSON.toJSONString(subjectLabelDTO));
-            }
-            SubjectLabelBO subjectLabelBo = SubjectLabelDTOConverter.INSTANCE.convertDtoToLabelBO(subjectLabelDTO);
-            Boolean delete = subjectLabelService.delete(subjectLabelBo);
-            AssertUtil.isTrue(delete, "删除失败");
-            return Result.success(delete);
-        } catch (Exception e) {
-            log.info("SubjectLabelController.delete.error:{}",e.getMessage());
-            return Result.fail("删除失败");
-        }
+        SubjectLabelBO subjectLabelBo = SubjectLabelDTOConverter.INSTANCE.convertDtoToLabelBO(subjectLabelDTO);
+        Boolean delete = subjectLabelService.delete(subjectLabelBo);
+        AssertUtil.isTrue(delete, "删除失败");
+        return Result.success(delete);
     }
     /**
      * 根据分类id查询标签
@@ -101,19 +77,11 @@ public class SubjectLabelController {
      */
     @PostMapping("/queryLabelByCategoryId")
     public Result<List<SubjectLabelDTO>> queryLabelByCategoryId(@RequestBody SubjectLabelDTO subjectLabelDTO){
-        try {
-            if (log.isInfoEnabled()){
-                log.info("SubjectLabelController.queryLabelByCategoryId.dto:{}", JSON.toJSONString(subjectLabelDTO));
-            }
-            SubjectLabelBO subjectLabelBO = SubjectLabelDTOConverter.INSTANCE.convertDtoToLabelBO(subjectLabelDTO);
-            List<SubjectLabelBO> subjectLabelBoList =  subjectLabelService.queryLabelByCategoryId(subjectLabelBO);
-            List<SubjectLabelDTO> subjectLabelDTOS = SubjectLabelDTOConverter.INSTANCE.convertBOToLabelDTOList(subjectLabelBoList);
-            AssertUtil.isListEmpty(subjectLabelDTOS, "查询失败");
-            return Result.success(subjectLabelDTOS);
-        } catch (Exception e) {
-            log.info("SubjectLabelController.queryLabelByCategoryId.error:{}",e.getMessage());
-            return Result.fail("查询失败");
-        }
+        SubjectLabelBO subjectLabelBO = SubjectLabelDTOConverter.INSTANCE.convertDtoToLabelBO(subjectLabelDTO);
+        List<SubjectLabelBO> subjectLabelBoList =  subjectLabelService.queryLabelByCategoryId(subjectLabelBO);
+        List<SubjectLabelDTO> subjectLabelDTOS = SubjectLabelDTOConverter.INSTANCE.convertBOToLabelDTOList(subjectLabelBoList);
+        AssertUtil.isListEmpty(subjectLabelDTOS, "查询失败");
+        return Result.success(subjectLabelDTOS);
     }
 }
 

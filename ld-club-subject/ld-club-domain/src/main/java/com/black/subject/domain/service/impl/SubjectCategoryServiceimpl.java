@@ -25,9 +25,6 @@ public class SubjectCategoryServiceimpl implements SubjectCategoryService {
      */
     @Override
     public void add(SubjectCategoryBO subjectCategoryBO) {
-        if (log.isInfoEnabled()) {
-            log.info("SubjectCategoryController.add.bo:{}", JSON.toJSONString(subjectCategoryBO));
-        }
         SubjectCategory subjectCategory = SubjectCategoryConverter.INSTANCE.convertBoToCategory(subjectCategoryBO);
         subjectCategory.setIsDeleted(IsDeletedFlagEnum.UN_DELETED.getCode());
         boolean save = subjectCategoryDao.save(subjectCategory);
@@ -38,17 +35,11 @@ public class SubjectCategoryServiceimpl implements SubjectCategoryService {
      */
     @Override
     public List<SubjectCategoryBO> queryPrimaryCategory(SubjectCategoryBO subjectCategoryBO) {
-
         SubjectCategory subjectCategory = SubjectCategoryConverter.INSTANCE
                 .convertBoToCategory(subjectCategoryBO);
         subjectCategory.setIsDeleted(IsDeletedFlagEnum.UN_DELETED.getCode());
-
         List<SubjectCategory> SubjectCategoryList = subjectCategoryDao.queryPrimaryCategory(subjectCategory);
         List<SubjectCategoryBO> boList = SubjectCategoryConverter.INSTANCE.convertCategoryToBo(SubjectCategoryList);
-        if (log.isInfoEnabled()) {
-            log.info("SubjectCategoryController.queryPrimaryCategory.boList:{}",
-                    JSON.toJSONString(boList));
-        }
         AssertUtil.isListEmpty(boList, "查询结果为空");
         return boList;
     }
@@ -59,9 +50,6 @@ public class SubjectCategoryServiceimpl implements SubjectCategoryService {
     public Boolean update(SubjectCategoryBO subjectCategoryBO) {
         SubjectCategory subjectCategory = SubjectCategoryConverter.INSTANCE.convertBoToCategory(subjectCategoryBO);
         boolean result = subjectCategoryDao.updateById(subjectCategory);
-        if (log.isInfoEnabled()) {
-            log.info("SubjectCategoryController.update.bo:{}", JSON.toJSONString(subjectCategoryBO));
-        }
         AssertUtil.isTrue(result, "更新失败");
         return result;
     }
@@ -73,9 +61,6 @@ public class SubjectCategoryServiceimpl implements SubjectCategoryService {
         SubjectCategory subjectCategory = SubjectCategoryConverter.INSTANCE.convertBoToCategory(subjectCategoryBO);
         List<SubjectCategory> boList = subjectCategoryDao.queryCategoryByPrimary(subjectCategory);
         List<SubjectCategoryBO> subjectCategoryBOS = SubjectCategoryConverter.INSTANCE.convertCategoryToBo(boList);
-        if (log.isInfoEnabled()) {
-            log.info("SubjectCategoryController.update.bo:{}", JSON.toJSONString(subjectCategoryBO));
-        }
         AssertUtil.isListEmpty(subjectCategoryBOS, "查询结果为空");
         return subjectCategoryBOS;
     }

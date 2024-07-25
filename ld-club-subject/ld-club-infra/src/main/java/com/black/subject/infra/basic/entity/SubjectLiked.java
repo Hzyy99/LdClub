@@ -11,9 +11,7 @@ import java.util.Date;
 
 /**
  * 题目点赞表 实体类
- *
- * @author jingdianjichi
- * @since 2024-01-07 23:08:45
+
  */
 @Data
 @TableName("subject_liked")

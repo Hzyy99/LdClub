@@ -5,6 +5,7 @@ import com.black.wechatLogin.handler.WxChatMsgFactory;
 import com.black.wechatLogin.handler.WxChatMsgHandler;
 import com.black.wechatLogin.utils.MessageUtil;
 import com.black.wechatLogin.utils.SHA1;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -19,12 +20,13 @@ import java.util.Objects;
  */
 @RestController
 @Slf4j
+@AllArgsConstructor
 public class CallBackController {
 
-    private static final String token = "adwidhaidwoaid";
+    private static final String token = "dssdfsdfs";
 
-    @Resource
-    private WxChatMsgFactory wxChatMsgFactory;
+    private final WxChatMsgFactory wxChatMsgFactory;
+
     /**
      * 回调消息校验
      */
@@ -78,6 +80,8 @@ public class CallBackController {
         log.info("replyContent:{}", replyContent);
         return replyContent;
     }
-
-
+    @RequestMapping("/test")
+    public String test(){
+        return "123";
+    }
 }

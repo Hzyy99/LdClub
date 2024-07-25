@@ -1,6 +1,7 @@
 package com.black.auth.common.entity;
 
 
+import com.black.auth.common.enums.ResultCodeEnum;
 import lombok.Data;
 
 @Data

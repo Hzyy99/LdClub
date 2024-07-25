@@ -10,9 +10,7 @@ import java.util.Date;
 
 /**
  * 题目标签表(SubjectLabel)实体类
- *
- * @author makejava
- * @since 2023-10-03 21:50:30
+
  */
 @Data
 public class SubjectLabel implements Serializable {

@@ -1,8 +1,9 @@
 package com.black.oss.controller;
 
+import com.black.oss.entity.Result;
 import com.black.oss.service.FileService;
 import com.black.oss.util.MinioUtils;
-import com.black.subject.common.entity.Result;
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
