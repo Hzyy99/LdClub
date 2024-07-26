@@ -5,6 +5,7 @@ import com.black.subject.infra.basic.Bo.SubjectOptionBO;
 import com.black.subject.infra.basic.entity.SubjectInfo;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -17,8 +18,10 @@ public interface SubjectInfoConverter {
 
     SubjectInfoBO convertOptionToBo(SubjectOptionBO subjectOptionBO);
 
-    SubjectInfoBO convertOptionAndInfoToBo(SubjectOptionBO subjectOptionBO, SubjectInfo subjectInfo);
+    SubjectInfoBO convertOptionAndInfoToBo(SubjectOptionBO subjectOptionBO,SubjectInfo subjectInfo);
 
     List<SubjectInfoBO> convertListInfoToBO(List<SubjectInfo> subjectInfoList);
+
+    SubjectInfoBO convertInfoToBo(SubjectInfo subjectInfo);
 
 }

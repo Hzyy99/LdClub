@@ -1,12 +1,12 @@
 package com.black.subject.application.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.black.subject.application.convert.SubjectInfoDTOConverter;
 import com.black.subject.application.dto.SubjectInfoDTO;
 import com.black.subject.common.entity.Result;
 import com.black.subject.common.utils.AssertUtil;
 import com.black.subject.domain.service.SubjectInfoService;
 import com.black.subject.infra.basic.Bo.SubjectInfoBO;
+import com.black.subject.infra.config.PageResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,4 +34,30 @@ public class SubjectController {
         Boolean result = subjectInfoService.add(subjectInfoBO);
         return Result.success(result);
     }
+
+    /**
+     * 查询题目列表
+     * @param subjectInfoDTO
+     * @return
+     */
+    @PostMapping("/getSubjectPage")
+    public Result<PageResult<SubjectInfoDTO>> getSubjectPage(@RequestBody SubjectInfoDTO subjectInfoDTO){
+        AssertUtil.isEmpty(subjectInfoDTO.getCategoryId(), "分类ID不能为空");
+        AssertUtil.isEmpty(subjectInfoDTO.getLabelId(), "标签ID不能为空");
+        SubjectInfoBO subjectInfoBO = SubjectInfoDTOConverter.INSTANCE.convertDTOToBO(subjectInfoDTO);
+        PageResult<SubjectInfoBO> boPageResult = subjectInfoService.getSubjectPage(subjectInfoBO);
+        return Result.success(boPageResult);
+    }
+    /**
+     * 查询题目信息
+     */
+    @PostMapping("/querySubjectInfo")
+    public Result<SubjectInfoDTO> querySubjectInfo(@RequestBody SubjectInfoDTO subjectInfoDTO){
+        AssertUtil.isEmpty(subjectInfoDTO.getId(), "题目ID不能为空");
+        SubjectInfoBO subjectInfoBO = SubjectInfoDTOConverter.INSTANCE.convertDTOToBO(subjectInfoDTO);
+        SubjectInfoBO queryubjectInfoBO = subjectInfoService.getSubjectInfo(subjectInfoBO);
+        SubjectInfoDTO subjectInfoDTO1 = SubjectInfoDTOConverter.INSTANCE.convertBOToDTO(queryubjectInfoBO);
+        return Result.success(subjectInfoDTO1);
+    }
+
 }

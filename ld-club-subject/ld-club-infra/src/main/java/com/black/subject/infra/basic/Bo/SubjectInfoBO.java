@@ -1,16 +1,17 @@
 package com.black.subject.infra.basic.Bo;
 
 
+import com.black.subject.common.entity.PageInfo;
 import lombok.Data;
 
 import java.io.Serializable;
 import java.util.List;
 
 /**
- * 题目dto
+ * 题目Bo
  */
 @Data
-public class SubjectInfoBO implements Serializable {
+public class SubjectInfoBO extends PageInfo implements Serializable {
 
     /**
      * 主键

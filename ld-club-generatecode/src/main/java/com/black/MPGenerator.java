@@ -57,11 +57,7 @@ public class MPGenerator {
         strategyConfig.setEntityTableFieldAnnotationEnable(true);
         //todo 这里修改需要自动生成的表结构
         strategyConfig.setInclude(
-                  "auth_permission",
-                  "auth_role",
-                  "auth_role_permission",
-                  "auth_user",
-                  "auth_user_role"
+                  "subject_info"
         );
         //自动填充字段,在项目开发过程中,例如创建时间，修改时间
         List<TableFill> list = new ArrayList<TableFill>();

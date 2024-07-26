@@ -1,9 +1,7 @@
 package com.black.subject.domain.service;
 
-import com.baomidou.mybatisplus.extension.service.IService;
 import com.black.subject.infra.basic.Bo.SubjectInfoBO;
-import com.black.subject.infra.basic.entity.SubjectInfo;
-import org.springframework.stereotype.Service;
+import com.black.subject.infra.config.PageResult;
 
 /**
  * <p>
@@ -17,4 +15,8 @@ import org.springframework.stereotype.Service;
 public interface SubjectInfoService {
 
     Boolean add(SubjectInfoBO subjectInfoBO);
+
+    PageResult<SubjectInfoBO> getSubjectPage(SubjectInfoBO subjectInfoBO);
+
+    SubjectInfoBO getSubjectInfo(SubjectInfoBO subjectInfoBO);
 }

@@ -10,7 +10,7 @@ import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-07-24T16:22:08+0800",
+    date = "2024-07-26T22:54:58+0800",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 1.8.0_382 (Amazon.com Inc.)"
 )
 public class SubjectInfoConverterImpl implements SubjectInfoConverter {
@@ -30,7 +30,6 @@ public class SubjectInfoConverterImpl implements SubjectInfoConverter {
         subjectInfo.setSubjectType( subjectInfoBO.getSubjectType() );
         subjectInfo.setSubjectScore( subjectInfoBO.getSubjectScore() );
         subjectInfo.setSubjectParse( subjectInfoBO.getSubjectParse() );
-        subjectInfo.setSubjectCount( subjectInfoBO.getSubjectCount() );
 
         return subjectInfo;
     }
@@ -75,7 +74,6 @@ public class SubjectInfoConverterImpl implements SubjectInfoConverter {
             subjectInfoBO.setSubjectType( subjectInfo.getSubjectType() );
             subjectInfoBO.setSubjectScore( subjectInfo.getSubjectScore() );
             subjectInfoBO.setSubjectParse( subjectInfo.getSubjectParse() );
-            subjectInfoBO.setSubjectCount( subjectInfo.getSubjectCount() );
         }
 
         return subjectInfoBO;
@@ -89,13 +87,14 @@ public class SubjectInfoConverterImpl implements SubjectInfoConverter {
 
         List<SubjectInfoBO> list = new ArrayList<SubjectInfoBO>( subjectInfoList.size() );
         for ( SubjectInfo subjectInfo : subjectInfoList ) {
-            list.add( subjectInfoToSubjectInfoBO( subjectInfo ) );
+            list.add( convertInfoToBo( subjectInfo ) );
         }
 
         return list;
     }
 
-    protected SubjectInfoBO subjectInfoToSubjectInfoBO(SubjectInfo subjectInfo) {
+    @Override
+    public SubjectInfoBO convertInfoToBo(SubjectInfo subjectInfo) {
         if ( subjectInfo == null ) {
             return null;
         }
@@ -109,7 +108,6 @@ public class SubjectInfoConverterImpl implements SubjectInfoConverter {
         subjectInfoBO.setSubjectType( subjectInfo.getSubjectType() );
         subjectInfoBO.setSubjectScore( subjectInfo.getSubjectScore() );
         subjectInfoBO.setSubjectParse( subjectInfo.getSubjectParse() );
-        subjectInfoBO.setSubjectCount( subjectInfo.getSubjectCount() );
 
         return subjectInfoBO;
     }

@@ -8,7 +8,7 @@ import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-07-24T16:22:08+0800",
+    date = "2024-07-26T22:49:53+0800",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 1.8.0_382 (Amazon.com Inc.)"
 )
 public class RadioSubjectConverterImpl implements RadioSubjectConverter {
