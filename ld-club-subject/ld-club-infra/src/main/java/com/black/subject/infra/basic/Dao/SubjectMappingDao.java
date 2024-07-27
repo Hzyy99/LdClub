@@ -24,4 +24,8 @@ public class SubjectMappingDao extends ServiceImpl<SubjectMappingMapper, Subject
         return lambdaQuery().eq(SubjectMapping::getLabelId,subjectInfoBO.getLabelId())
                 .eq(SubjectMapping::getCategoryId,subjectInfoBO.getCategoryId()).list();
     }
+
+    public List<SubjectMapping> getLableId(SubjectMapping subjectMapping) {
+        return lambdaQuery().eq(SubjectMapping::getCategoryId,subjectMapping.getCategoryId()).list();
+    }
 }

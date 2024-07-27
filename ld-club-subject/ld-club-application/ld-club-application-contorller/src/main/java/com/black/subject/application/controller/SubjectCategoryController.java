@@ -1,7 +1,10 @@
 package com.black.subject.application.controller;
 
+import cn.hutool.core.bean.BeanUtil;
 import com.black.subject.application.convert.SubjectCategoryDTOConverter;
+import com.black.subject.application.convert.SubjectLabelDTOConverter;
 import com.black.subject.application.dto.SubjectCategoryDTO;
+import com.black.subject.application.dto.SubjectLabelDTO;
 import com.black.subject.common.utils.AssertUtil;
 import com.black.subject.infra.basic.Bo.SubjectCategoryBO;
 import com.black.subject.domain.service.SubjectCategoryService;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
+import java.util.LinkedList;
 import java.util.List;
 /**
  * <p>
@@ -105,8 +109,14 @@ public class SubjectCategoryController {
     public Result<List<SubjectCategoryDTO>> queryCategoryAndLabel(@RequestBody SubjectCategoryDTO subjectCategoryDTO){
         SubjectCategoryBO subjectCategoryBO = SubjectCategoryDTOConverter.INSTANCE.convertDtoToCategoryBO(subjectCategoryDTO);
         List<SubjectCategoryBO> ListLabelBO = subjectCategoryService.queryCategoryAndLabel(subjectCategoryBO);
-        List<SubjectCategoryDTO> subjectCategoryDTOList = SubjectCategoryDTOConverter.INSTANCE.convertBoToCategoryDTOList(ListLabelBO);
-        return Result.success(subjectCategoryDTOList);
+        LinkedList<SubjectCategoryDTO> dtoList = new LinkedList<>();
+        ListLabelBO.forEach(bo -> {
+            SubjectCategoryDTO dto = SubjectCategoryDTOConverter.INSTANCE.convertBoToCategoryDTO(bo);
+            List<SubjectLabelDTO> labelDTOList = SubjectLabelDTOConverter.INSTANCE.convertBOToLabelDTOList(bo.getLabelBOList());
+            dto.setLabelDTOList(labelDTOList);
+            dtoList.add(dto);
+        });
+        return Result.success(dtoList);
     }
 }
 

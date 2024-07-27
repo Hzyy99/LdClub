@@ -20,4 +20,13 @@ public class SubjectLabelDao extends ServiceImpl<SubjectLabelMapper, SubjectLabe
     public List<SubjectLabel> queryLabelByCategoryId(SubjectLabel subjectCategory) {
         return lambdaQuery().eq(SubjectLabel::getCategoryId, subjectCategory.getCategoryId()).list();
     }
+
+    /**
+     * 获得标签列表
+     * @param collectLabelId
+     * @return
+     */
+    public List<SubjectLabel> getLabelById(List<Long> collectLabelId) {
+        return getBaseMapper().selectBatchIds(collectLabelId);
+    }
 }
