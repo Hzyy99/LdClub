@@ -9,9 +9,6 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * 权限认证的配置器
- *
- * @author: ChickenWing
- * @date: 2023/10/28
  */
 @Configuration
 public class SaTokenConfigure {

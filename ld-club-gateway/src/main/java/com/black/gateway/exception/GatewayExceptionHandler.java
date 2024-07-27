@@ -15,6 +15,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
+/**
+ * 异常处理器
+ */
 @Component
 @Order(0)
 public class GatewayExceptionHandler implements ErrorWebExceptionHandler {
