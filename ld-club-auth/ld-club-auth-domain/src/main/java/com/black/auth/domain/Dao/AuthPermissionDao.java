@@ -18,7 +18,7 @@ import java.util.List;
 @Service
 public class AuthPermissionDao extends ServiceImpl<AuthPermissionMapper, AuthPermission> {
 
-    public List<AuthPermission> getByidList(List<Long> permissionIdList) {
-        return this.getBaseMapper().selectBatchIds(permissionIdList);
+    public List<AuthPermission> getByname(String userName) {
+        return lambdaQuery().eq(AuthPermission::getName,userName).list();
     }
 }

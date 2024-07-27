@@ -1,5 +1,7 @@
 package com.black.auth.domain.service;
 
+import com.black.auth.domain.entity.AuthRoleBO;
+
 /**
  * <p>
  *  服务类
@@ -10,4 +12,9 @@ package com.black.auth.domain.service;
  */
 public interface AuthRoleService  {
 
+    Boolean add(AuthRoleBO authRoleBO);
+
+    Boolean update(AuthRoleBO authRoleBO);
+
+    Boolean delete(AuthRoleBO authRoleBO);
 }
