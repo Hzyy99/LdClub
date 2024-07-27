@@ -1,37 +1,31 @@
 # ld-club
-
-#### 介绍
 临大Club
+项目描述：
+临大Club是一款专门为临大学生打造的沟通交流社区，采用主流的微服务框架+主流C端技术栈来实现。旨在
+为临大同学提供一个练习计算机试题的平台。
 
-#### 软件架构
-软件架构说明
+技术栈：
+SpringBoot+SpringCloud Alibaba+SSM+MySQL+Redis+Nacos+Gateway+Minio+RcoketMQ
 
+项目职责
+1、采用微服务领域拆分思想，对项目模块进行领域设计，业务解耦，专注自身职责；
 
-#### 安装教程
+2、基于Nacos来实现业务项目的服务注册与发现及业务动态配置切换；
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+3、选取主流鉴权框架Sa-Token来替代传统的Secruity，提高开发效率；
 
-#### 使用说明
+4、采用Gateway配合Redis实现统一的鉴权及分布式会话共享功能，在网关层实现统一的全局异常处理；
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+5、采取工厂+策略模式实现微信的消息解耦处理，采取适配器模式实现OSS对接.
 
-#### 参与贡献
+6、使用ThreadLocal配合网关拦截器，feign拦截器，封装用户上下文全局工具。
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+7、针对高并发接口，采取了Caffeine本地缓存配合函数式编程**，泛型封装本地缓存工具，提升性能及通用
+性；
 
+8、封装自定义的Esclient，支持多集群，多索引切换，封装了常用的业务函数，实现网站的高亮搜索功能；
 
-#### 特技
+9、基于Redis的Zset实现实时排行榜功能，解决传统数据库大量交互的瓶颈点；
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+10、使用RocketMQ，优化原有点赞功能，解决了redis存储点赞可能丢数据的问题。
+
