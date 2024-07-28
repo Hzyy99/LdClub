@@ -1,6 +1,6 @@
 spring:
   application:
-    name: ld-club-wechatLogin
+    name: ld-club-wechat
   profiles:
     active: dev
   cloud:
@@ -8,14 +8,14 @@ spring:
       server-addr: 192.168.101.65:8848
       discovery:
         namespace: ld-club
-        group: ld-club-wechatLogin
+        group: ld-club
       config:
         namespace: ld-club
-        group: ld-club-wechatLogin
+        group: ld-club
         file-extension: yaml
         refresh-enabled: true
         extension-configs:
-          - data-id: ld-club-wechatLogin
-            group: ld-club-wechatLogin
+          - data-id: ld-club-wechat
+            group: ld-club
             refresh: true
 

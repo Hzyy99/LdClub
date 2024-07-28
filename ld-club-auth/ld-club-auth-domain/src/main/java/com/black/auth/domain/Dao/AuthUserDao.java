@@ -27,8 +27,8 @@ public class AuthUserDao extends ServiceImpl<AuthUserMapper, AuthUser>  {
      * @param authUser
      * @return
      */
-    public AuthUser getUserInfo(AuthUser authUser) {
-        return lambdaQuery().eq(AuthUser::getUserName, authUser.getUserName()).one();
+    public List<AuthUser> getUserInfo(AuthUser authUser) {
+        return lambdaQuery().eq(AuthUser::getUserName, authUser.getUserName()).list();
     }
     /**
      * 根据用户名批量获取用户信息

@@ -24,9 +24,12 @@ public class CallBackController {
     private static final String token = "dssdfsdfs";
 
     private final WxChatMsgFactory wxChatMsgFactory;
-
     /**
      * 回调消息校验
+     * @param signature 微信加密签名
+     * @param timestamp 时间戳
+     * @param nonce 随机数
+     * @param echostr 随机字符串
      */
     @GetMapping("callback")
     public String callback(@RequestParam("signature") String signature,

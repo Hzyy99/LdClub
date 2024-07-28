@@ -14,6 +14,7 @@ import com.black.auth.infra.basic.entity.*;
 import com.black.auth.common.utils.AssertUtil;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
+import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -57,11 +58,13 @@ public class AuthUserServiceimpl implements AuthUserService {
         if (user != null){
             return true;
         }
+        authUser.setUserName(authUser.getUserName());
         authUser.setNickName(authUser.getUserName());
         authUser.setAvatar("https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png");
         authUser.setPassword("123456");
         authUser.setStatus(AuthUserStatusEnum.OPEN.getCode());
         authUser.setIsDeleted(IsDeletedFlagEnum.UN_DELETED.getCode());
+        authUser.setCreatedTime(LocalDateTime.now());
         boolean save = authUserDao.save(authUser);
         AssertUtil.isTrue(save, "注册失败");
         /**
@@ -106,6 +109,7 @@ public class AuthUserServiceimpl implements AuthUserService {
     @Override
     public Boolean update(AuthUserBO authUserBO) {
         AuthUser authUser = AuthUserBOConverter.INSTANCE.convertBOToEntity(authUserBO);
+        authUser.setUpdateTime(LocalDateTime.now());
         boolean update = authUserDao.updateByUsername(authUser);
         AssertUtil.isTrue(update, "更新失败");
         return update;
@@ -118,8 +122,9 @@ public class AuthUserServiceimpl implements AuthUserService {
     @Override
     public AuthUserBO getUserInfo(AuthUserBO authUserBO) {
         AuthUser authUser = AuthUserBOConverter.INSTANCE.convertBOToEntity(authUserBO);
-        AuthUser authuser1 = authUserDao.getUserInfo(authUser);
-        AssertUtil.isEmpty(authuser1, "用户信息获取失败");
+        List<AuthUser> userInfo = authUserDao.getUserInfo(authUser);
+        AssertUtil.isListEmpty(userInfo, "用户信息获取失败");
+        AuthUser authuser1 = userInfo.get(0);
         AuthUserBO authUserBO1 = AuthUserBOConverter.INSTANCE.convertEntityToBO(authuser1);
         return authUserBO1;
     }

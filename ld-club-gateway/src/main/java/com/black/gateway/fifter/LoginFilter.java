@@ -24,7 +24,7 @@ public class LoginFilter implements GlobalFilter {
         ServerHttpRequest.Builder mutate = request.mutate();
         String url = request.getURI().getPath();
         log.info("LoginFilter.filter.url:{}", url);
-        if (url.equals("/oss/**")) {
+        if (url.equals("/user/doLogin")) {
             log.info("LoginFilter.filter.login");
             return chain.filter(exchange);
         }

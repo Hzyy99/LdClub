@@ -2,6 +2,7 @@ package com.black.subject.domain.service.impl;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.ListUtil;
+import cn.hutool.core.date.DateTime;
 import cn.hutool.core.map.MapUtil;
 import com.black.subject.common.enums.IsDeletedFlagEnum;
 import com.black.subject.common.utils.AssertUtil;
@@ -23,6 +24,7 @@ import javax.annotation.Resource;
 import com.alibaba.fastjson.JSON;
 import org.springframework.util.CollectionUtils;
 
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -50,6 +52,7 @@ public class SubjectCategoryServiceimpl implements SubjectCategoryService {
     public void add(SubjectCategoryBO subjectCategoryBO) {
         SubjectCategory subjectCategory = SubjectCategoryConverter.INSTANCE.convertBoToCategory(subjectCategoryBO);
         subjectCategory.setIsDeleted(IsDeletedFlagEnum.UN_DELETED.getCode());
+        subjectCategory.setCreatedTime(DateTime.now());
         boolean save = subjectCategoryDao.save(subjectCategory);
         AssertUtil.isTrue(save, "新增失败");
     }
@@ -72,6 +75,7 @@ public class SubjectCategoryServiceimpl implements SubjectCategoryService {
     @Override
     public Boolean update(SubjectCategoryBO subjectCategoryBO) {
         SubjectCategory subjectCategory = SubjectCategoryConverter.INSTANCE.convertBoToCategory(subjectCategoryBO);
+        subjectCategory.setUpdateTime(DateTime.now());
         boolean result = subjectCategoryDao.updateById(subjectCategory);
         AssertUtil.isTrue(result, "更新失败");
         return result;
