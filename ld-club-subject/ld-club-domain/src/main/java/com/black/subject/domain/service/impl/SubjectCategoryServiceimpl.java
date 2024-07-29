@@ -4,7 +4,9 @@ import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.date.DateTime;
 import cn.hutool.core.map.MapUtil;
+import com.black.subject.common.enums.CacheType;
 import com.black.subject.common.enums.IsDeletedFlagEnum;
+import com.black.subject.common.interfaces.multipleCache;
 import com.black.subject.common.utils.AssertUtil;
 import com.black.subject.domain.service.SubjectCategoryService;
 import com.black.subject.infra.basic.Bo.SubjectCategoryBO;
@@ -18,6 +20,7 @@ import com.black.subject.infra.basic.entity.SubjectMapping;
 import lombok.extern.slf4j.Slf4j;
 import com.black.subject.infra.basic.entity.SubjectCategory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
@@ -104,6 +107,8 @@ public class SubjectCategoryServiceimpl implements SubjectCategoryService {
     /**
      *  查询分类和标签
      */
+//    @Cacheable(value = "subjectCategoryAndLabel", key = "#subjectCategoryBO.id")
+    @multipleCache(cacheName = "subjectCategoryAndLabel", key = "#subjectCategoryBO.id", type = CacheType.FULL)
     @Override
     public List<SubjectCategoryBO> queryCategoryAndLabel(SubjectCategoryBO subjectCategoryBO) {
         Long subjectCategoryId = subjectCategoryBO.getId();
@@ -111,7 +116,6 @@ public class SubjectCategoryServiceimpl implements SubjectCategoryService {
         AssertUtil.isListEmpty(subjectCategoryBOS, "查询结果为空");
         return subjectCategoryBOS;
     }
-
     /**
      * 异步线程池获取标签
      * @param categoryId

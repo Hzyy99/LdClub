@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * OpenFeignService
  */
-@FeignClient(name = "ld-club-auth",fallback = authFeignFallbackFactory.class)
+@FeignClient(name = "ld-club-auth")
 public interface UserFeignService {
 
     @RequestMapping("/user/getUserInfo")

@@ -8,14 +8,14 @@ spring:
       server-addr: 192.168.101.65:8848
       discovery:
         namespace: ld-club
-        group: ld-club-oss
+        group: ld-club
       config:
         namespace: ld-club
-        group: ld-club-oss
+        group: ld-club
         file-extension: yaml
         refresh-enabled: true
         extension-configs:
           - data-id: ${spring.application.name}
-            group: ld-club-oss
+            group: ld-club
             refresh: true
 
