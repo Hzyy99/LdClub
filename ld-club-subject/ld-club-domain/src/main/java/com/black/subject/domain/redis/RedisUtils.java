@@ -832,7 +832,7 @@ public class RedisUtils {
      * @param delta
      * @return
      */
-    public static Double zIncrementScore(String key, String value, double delta) {
+    public static Object zIncrementScore(String key, Object value, double delta) {
         return redisTemplate.opsForZSet().incrementScore(key, value, delta);
     }
 
@@ -944,19 +944,18 @@ public class RedisUtils {
         return redisTemplate.opsForZSet().reverseRange(key, start, end);
     }
 
-//    /**
-//     * 获取集合的元素, 从大到小排序, 并返回score值
-//     *
-//     * @param key
-//     * @param start
-//     * @param end
-//     * @return
-//     */
-//    public Set<TypedTuple<String>> zReverseRangeWithScores(String key,
-//                                                           long start, long end) {
-//        return redisTemplate.opsForZSet().reverseRangeWithScores(key, start,
-//                end);
-//    }
+    /**
+     * 获取集合的元素, 从大到小排序, 并返回score值
+     *
+     * @param key
+     * @param start
+     * @param end
+     * @return
+     */
+    public static Set<ZSetOperations.TypedTuple<String>> rankWithScore(String key, long start, long end) {
+        Set<ZSetOperations.TypedTuple<String>> set = redisTemplate.opsForZSet().reverseRangeWithScores(key, start, end);
+        return set;
+    }
 
     /**
      * 获取集合的元素, 从大到小排序, 并返回score值

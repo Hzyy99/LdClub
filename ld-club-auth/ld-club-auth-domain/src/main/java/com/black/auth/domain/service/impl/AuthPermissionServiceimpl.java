@@ -67,7 +67,6 @@ public class AuthPermissionServiceimpl implements AuthPermissionService {
         AssertUtil.isTrue(update, "删除权限失败");
         return update;
     }
-
     @Override
     public List<String> getPermission(String userName) {
         String permissionKey = redisUtil.buildKey(authPermissionPrefix, userName);

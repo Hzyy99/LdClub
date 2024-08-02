@@ -3,6 +3,8 @@ package com.black.subject.domain.service;
 import com.black.subject.infra.basic.Bo.SubjectInfoBO;
 import com.black.subject.infra.config.PageResult;
 
+import java.util.List;
+
 /**
  * <p>
  * 题目信息表 服务类
@@ -19,4 +21,6 @@ public interface SubjectInfoService {
     PageResult<SubjectInfoBO> getSubjectPage(SubjectInfoBO subjectInfoBO);
 
     SubjectInfoBO getSubjectInfo(SubjectInfoBO subjectInfoBO);
+
+    List<SubjectInfoBO> getContributeList();
 }

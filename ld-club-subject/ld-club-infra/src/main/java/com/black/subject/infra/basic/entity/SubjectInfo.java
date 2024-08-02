@@ -28,7 +28,7 @@ public class SubjectInfo implements Serializable {
     /**
      * 主键
      */
-      @TableId(value = "id", type = IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     /**
@@ -90,6 +90,7 @@ public class SubjectInfo implements Serializable {
      */
     @TableField("update_time")
     private LocalDateTime updateTime;
+
 
     @TableField("is_deleted")
     private Integer isDeleted;

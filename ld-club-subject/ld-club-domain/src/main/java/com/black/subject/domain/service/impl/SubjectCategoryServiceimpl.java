@@ -4,8 +4,10 @@ import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.date.DateTime;
 import cn.hutool.core.map.MapUtil;
+//import com.black.subject.common.enums.CacheType;
 import com.black.subject.common.enums.CacheType;
 import com.black.subject.common.enums.IsDeletedFlagEnum;
+//import com.black.subject.common.interfaces.multipleCache;
 import com.black.subject.common.interfaces.multipleCache;
 import com.black.subject.common.utils.AssertUtil;
 import com.black.subject.domain.service.SubjectCategoryService;
@@ -19,25 +21,21 @@ import com.black.subject.infra.basic.entity.SubjectLabel;
 import com.black.subject.infra.basic.entity.SubjectMapping;
 import lombok.extern.slf4j.Slf4j;
 import com.black.subject.infra.basic.entity.SubjectCategory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import com.alibaba.fastjson.JSON;
 import org.springframework.util.CollectionUtils;
-
-import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ThreadPoolExecutor;
 import java.util.stream.Collectors;
 
 @Service
 @Slf4j
+//@ComponentScan(basePackages = "com.common.aspect.CacheAspect")
 public class SubjectCategoryServiceimpl implements SubjectCategoryService {
 
     @Resource

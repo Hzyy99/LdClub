@@ -7,12 +7,12 @@ import com.black.subject.infra.basic.Dao.SubjectLabelDao;
 import com.black.subject.infra.basic.entity.SubjectLabel;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.Resource;
 import java.util.List;
 
 @Slf4j
 @Service
+
 public class SubjectLabelServiceimpl implements SubjectLabelService {
 
     @Resource
@@ -47,6 +47,7 @@ public class SubjectLabelServiceimpl implements SubjectLabelService {
     /**
      * 根据分类id查询标签
      */
+
     @Override
     public List<SubjectLabelBO> queryLabelByCategoryId(SubjectLabelBO subjectLabelBO) {
         SubjectLabel subjectCategory = SubjectLabelConverter.INSTANCE.convertBoToLabel(subjectLabelBO);

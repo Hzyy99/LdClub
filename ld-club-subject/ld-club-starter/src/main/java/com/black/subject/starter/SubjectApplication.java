@@ -10,11 +10,10 @@ import org.springframework.context.annotation.ComponentScan;
  *Subject启动类
  */
 @SpringBootApplication
-@ComponentScan("com.black.subject")
+@ComponentScan({"com.black.*"})
 @MapperScan("com.black.subject.infra.**.mapper")
 @EnableFeignClients(basePackages = "com.black")
 public class SubjectApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(SubjectApplication.class);
     }

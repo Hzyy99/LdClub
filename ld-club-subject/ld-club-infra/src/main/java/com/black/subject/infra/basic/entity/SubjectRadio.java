@@ -1,6 +1,8 @@
 package com.black.subject.infra.basic.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
@@ -41,6 +43,7 @@ public class SubjectRadio implements Serializable {
     /**
      * 创建时间
      */
+    @TableField(fill = FieldFill.INSERT)
     private Date createdTime;
     /**
      * 修改人
@@ -49,6 +52,7 @@ public class SubjectRadio implements Serializable {
     /**
      * 修改时间
      */
+    @TableField(fill = FieldFill.UPDATE)
     private Date updateTime;
     
     private Integer isDeleted;

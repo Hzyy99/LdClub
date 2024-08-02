@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
+import java.util.List;
 
 @RestController
 @Slf4j
@@ -58,6 +59,14 @@ public class SubjectController {
         SubjectInfoBO queryubjectInfoBO = subjectInfoService.getSubjectInfo(subjectInfoBO);
         SubjectInfoDTO subjectInfoDTO1 = SubjectInfoDTOConverter.INSTANCE.convertBOToDTO(queryubjectInfoBO);
         return Result.success(subjectInfoDTO1);
+    }
+
+    @PostMapping("/getContributeList")
+    public Result<List<SubjectInfoDTO>> getContributeList() {
+        List<SubjectInfoBO> boList = subjectInfoService.getContributeList();
+        List<SubjectInfoDTO> dtoList = SubjectInfoDTOConverter.INSTANCE.convertBOToDTOList(boList);
+        return Result.success(dtoList);
+
     }
 
 }

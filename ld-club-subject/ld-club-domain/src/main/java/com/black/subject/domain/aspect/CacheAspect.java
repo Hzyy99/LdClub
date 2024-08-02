@@ -1,6 +1,5 @@
 package com.black.subject.domain.aspect;
 
-
 import com.black.subject.common.enums.CacheType;
 import com.black.subject.common.interfaces.multipleCache;
 import com.black.subject.domain.config.splConfig;
@@ -30,7 +29,7 @@ public class CacheAspect {
     private final splConfig ElParser;
     public static final String CacheConstant = "ldclub";
     @Around("@annotation(com.black.subject.common.interfaces.multipleCache)")
-    public Object doAround(ProceedingJoinPoint point) throws Throwable {
+    public Object cacheAspect(ProceedingJoinPoint point) throws Throwable {
         MethodSignature signature = (MethodSignature) point.getSignature();
         Method method = signature.getMethod();
 
